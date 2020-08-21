@@ -8,7 +8,7 @@ This app is based on courses by Brad Traversy from Udemy
 
 
 ## What I learned
-* method: 
+* method: insertBefore
 * function: 
 
 ## How to build
@@ -43,6 +43,33 @@ This app is based on courses by Brad Traversy from Udemy
   : define function(clearFields)
    - clear value of title, author, isbn  
 
+<strong> [ Step 2.Validation & Alert] </strong>
+
+1. show Error - IF statement
+* if title is nothing or author is nothing or isbn is nothing
+- then, to ui, load function showAlert 'Please fill in all fields', 
+call class 'error'
+
+2. Show Alert - prototypical Inheritance
+to UI prototype call showAlert
+define function, argument are message, className
+- define div and create div at DOM
+- add classes at div
+  : alert className
+- add text 
+ create text node : message at DOM 
+ append text to div
+-get parent
+ define container, class:container
+define form, id:book-form
+-insert alert
+insert div before form at container
+
+-timeout after 3 sec and its function is
+call function remove class:alert in DOM
+
+3. Show success
+to ui call showAlert 'Book Added!, call class 'success'
 
 
 
