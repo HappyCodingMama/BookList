@@ -20,6 +20,7 @@ function UI() {}
         bookList.appendChild(row);
     }
 
+    
     UI.prototype.showAlert = function(message, className) {
         const div = document.createElement('div');
         div.className = `alert ${className}`;
@@ -33,6 +34,14 @@ function UI() {}
             document.querySelector('.alert').remove();
         }, 1000);
     }
+
+    UI.prototype.deleteBook = function(target) {
+        if( target.className === 'delete') {
+            target.parentElement.parentElement.remove();
+        }
+    }
+
+
 
     UI.prototype.clearFields = function() {
         document.getElementById('title').value = '';
@@ -60,10 +69,14 @@ if (title === '' || author === '' || isbn === '') {
     ui.clearFields();
 }
 
-
-
-
-
 e.preventDefault();
 });
 
+document.getElementById('book-list').addEventListener('click', function(e) {
+    
+    const ui = new UI();
+    ui.deleteBook(e.target);
+    ui.showAlert('book removed!', 'success');
+
+    e.preventDefault();
+});
